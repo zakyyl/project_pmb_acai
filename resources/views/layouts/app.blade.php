@@ -56,41 +56,81 @@
         }
 
         .brand-badge {
-            background: linear-gradient(135deg, #2563eb, #0ea5e9);
+            background: #0066ff;
             color: #fff;
-            font-size: 0.75rem;
-            padding: 3px 8px;
-            border-radius: 6px;
+            font-size: 0.72rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+
+        .navbar-acai .nav-link {
+            font-weight: 500;
+            color: #334155;
+            padding: 0.6rem 1.1rem !important;
+            transition: color 0.2s ease;
+            position: relative;
+        }
+
+        .navbar-acai .nav-link:hover {
+            color: #0066ff;
+        }
+
+        .navbar-acai .nav-link.active {
+            color: #0066ff !important;
             font-weight: 600;
         }
 
-        .nav-link {
-            font-weight: 500;
-            color: #475569;
-            padding: 0.5rem 1rem !important;
-            transition: color 0.2s ease;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: var(--primary);
+        .navbar-acai .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 28px;
+            height: 3px;
+            background: #0066ff;
+            border-radius: 3px;
         }
 
         .btn-primary-acai {
-            background: linear-gradient(135deg, #1e40af, #2563eb);
+            background: #0066ff;
             border: none;
             color: white;
             font-weight: 600;
-            padding: 0.6rem 1.4rem;
+            padding: 0.55rem 1.35rem;
             border-radius: 8px;
-            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+            box-shadow: 0 4px 14px rgba(0, 102, 255, 0.25);
             transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .btn-primary-acai:hover {
-            background: linear-gradient(135deg, #1e3a8a, #1d4ed8);
+            background: #0052cc;
             color: white;
             transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+            box-shadow: 0 6px 20px rgba(0, 102, 255, 0.35);
+        }
+
+        .btn-outline-primary-acai {
+            border: 1.5px solid #0066ff;
+            color: #0066ff;
+            background: #ffffff;
+            font-weight: 600;
+            padding: 0.5rem 1.25rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-outline-primary-acai:hover {
+            background: #f0f7ff;
+            color: #0052cc;
+            border-color: #0052cc;
         }
 
         .footer-acai {
@@ -176,11 +216,11 @@
                             <i class="bi bi-box-arrow-right"></i>
                         </a>
                     @else
-                        <a href="{{ route('login') }}" class="btn btn-outline-primary btn-sm rounded-3 fw-semibold px-3">
-                            <i class="bi bi-box-arrow-in-right me-1"></i> Masuk
+                        <a href="{{ route('login') }}" class="btn btn-outline-primary-acai btn-sm">
+                            <i class="bi bi-box-arrow-in-right"></i> Masuk
                         </a>
                         <a href="{{ route('register') }}" class="btn btn-primary-acai btn-sm">
-                            <i class="bi bi-pencil-square me-1"></i> Daftar Sekarang
+                            <i class="bi bi-pencil-square"></i> Daftar Sekarang
                         </a>
                     @endauth
                 </div>

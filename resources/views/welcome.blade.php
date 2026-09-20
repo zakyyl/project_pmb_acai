@@ -2,89 +2,297 @@
 
 @section('title', 'PMB ACAI 2026/2027 - Penerimaan Mahasiswa Baru')
 
+@push('styles')
+<style>
+    .hero-acai-section {
+        position: relative;
+        background-image: url('{{ asset('storage/images/HERO.png') }}');
+        background-size: 150% auto;
+        background-position: 96% 28%;
+        background-repeat: no-repeat;
+        min-height: 780px;
+        display: flex;
+        align-items: center;
+        padding-top: 3.5rem;
+        padding-bottom: 5.5rem;
+        overflow: hidden;
+    }
+
+    .hero-main-title {
+        font-size: 3.6rem;
+        font-weight: 800;
+        color: #0f1e36;
+        line-height: 1.12;
+        letter-spacing: -0.035em;
+    }
+
+    .hero-btn-primary {
+        background: #0066ff;
+        border: none;
+        color: #ffffff;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 13px 28px;
+        box-shadow: 0 6px 20px rgba(0, 102, 255, 0.35);
+        transition: all 0.2s ease;
+    }
+    .hero-btn-primary:hover {
+        background: #0052cc;
+        color: #ffffff;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 102, 255, 0.45);
+    }
+
+    .hero-btn-outline {
+        background: #ffffff;
+        color: #0f1e36;
+        border: 1.5px solid #0066ff;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 13px 26px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+        transition: all 0.2s ease;
+    }
+    .hero-btn-outline:hover {
+        background: #f0f7ff;
+        color: #0066ff;
+        transform: translateY(-2px);
+    }
+
+    .hero-stats-card {
+        background: #ffffff;
+        border-radius: 20px !important;
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(226, 232, 240, 0.9);
+        display: inline-flex;
+        align-items: center;
+        gap: 2.2rem;
+    }
+
+    .hero-card-registration {
+        width: 100%;
+        max-width: 440px;
+        border-radius: 24px;
+        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.16) !important;
+        border: 1px solid rgba(255, 255, 255, 0.85);
+        overflow: hidden;
+    }
+
+    @media (max-width: 1200px) {
+        .hero-main-title {
+            font-size: 3rem;
+        }
+        .hero-stats-card {
+            gap: 1.4rem;
+        }
+    }
+
+    @media (max-width: 991px) {
+        .hero-acai-section {
+            min-height: auto;
+            padding-top: 3rem;
+            padding-bottom: 4rem;
+        }
+        .hero-main-title {
+            font-size: 2.5rem;
+        }
+        .hero-card-registration {
+            max-width: 100%;
+            margin-top: 2rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .hero-main-title {
+            font-size: 2.1rem;
+        }
+        .hero-stats-card {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+            width: 100%;
+        }
+        .stat-divider {
+            display: none !important;
+        }
+    }
+</style>
+@endpush
+
 @section('content')
-<!-- Hero Section -->
-<section class="py-5 bg-white border-bottom position-relative overflow-hidden">
-    <div class="container py-lg-5">
-        <div class="row align-items-center g-5">
+<!-- Hero Section (Remake with Campus Background HERO.png) -->
+<section class="hero-acai-section position-relative">
+    <div class="container-fluid px-4 px-xl-5 py-lg-4" style="max-width: 1400px;">
+        <div class="row align-items-center g-4 g-xl-5">
+            <!-- Left Column Content -->
             <div class="col-lg-7">
-                <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-primary-subtle text-primary fw-semibold small mb-3">
-                    <span class="badge bg-primary rounded-pill">Buka</span>
-                    Gelombang I PMB Tahun Akademik 2026/2027
+                <!-- Pill Badge -->
+                <div class="d-inline-flex align-items-center gap-2 px-3 py-1 mb-4 rounded-pill shadow-sm"
+                     style="background: rgba(224, 242, 254, 0.9); backdrop-filter: blur(8px); border: 1px solid rgba(186, 230, 253, 0.9);">
+                    <span class="badge rounded-pill px-2.5 py-1 text-white fw-bold d-inline-flex align-items-center gap-1"
+                          style="background: #0066ff; font-size: 11px;">
+                        <span style="display:inline-block; width:6px; height:6px; background:#fff; border-radius:50%;"></span>
+                        Buka
+                    </span>
+                    <span class="fw-semibold small" style="color: #0066ff; font-size: 13.5px;">
+                        Gelombang I PMB Tahun Akademik 2026/2027
+                    </span>
                 </div>
-                <h1 class="display-4 fw-extrabold text-dark tracking-tight mb-3">
-                    Wujudkan Masa Depan Gemilang Bersama <span class="text-primary">Kampus ACAI</span>
+
+                <!-- Main Headline -->
+                <h1 class="hero-main-title mb-3">
+                    Wujudkan Masa Depan<br>
+                    Gemilang Bersama<br>
+                    <span style="color: #0066ff;">Kampus ACAI</span>
                 </h1>
-                <p class="lead text-secondary mb-4">
+
+                <!-- Subtitle -->
+                <p class="hero-desc mb-4" style="color: #475569; font-size: 1.05rem; line-height: 1.65; max-width: 530px; font-weight: 450;">
                     Institut & Akademi ACAI menghadirkan kurikulum berbasis industri terkini, teknologi digital mutakhir, dan program magang bersertifikat untuk mencetak lulusan siap kerja berdaya saing global.
                 </p>
-                <div class="d-flex flex-wrap gap-3">
-                    <a href="{{ route('register') }}" class="btn btn-primary-acai btn-lg px-4">
-                        <i class="bi bi-pencil-square me-2"></i> Daftar Sekarang
+
+                <!-- CTA Buttons -->
+                <div class="d-flex flex-wrap align-items-center gap-3 mb-5">
+                    <a href="{{ route('register') }}" class="btn hero-btn-primary d-inline-flex align-items-center gap-2">
+                        <i class="bi bi-pencil-square fs-5"></i>
+                        <span>Daftar Sekarang</span>
+                        <i class="bi bi-arrow-right fs-5 ms-1"></i>
                     </a>
-                    <a href="{{ route('login') }}" class="btn btn-outline-secondary btn-lg px-4 fw-semibold">
-                        <i class="bi bi-person-check me-2"></i> Cek Status Pendaftaran
+                    <a href="{{ route('login') }}" class="btn hero-btn-outline d-inline-flex align-items-center gap-2">
+                        <i class="bi bi-person text-primary fs-4"></i>
+                        <span>Cek Status Pendaftaran</span>
                     </a>
                 </div>
 
-                <div class="row g-4 mt-4 pt-3 border-top">
-                    <div class="col-sm-4 col-6">
-                        <div class="h3 fw-bold text-primary mb-0">{{ $totalPendaftar }}+</div>
-                        <small class="text-muted">Pendaftar Terdaftar</small>
+                <!-- Bottom Floating Stats Card -->
+                <div class="hero-stats-card p-3 p-md-4">
+                    <!-- Stat 1 -->
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="fs-2 d-flex align-items-center">
+                            <i class="bi bi-people-fill" style="color: #0066ff;"></i>
+                        </div>
+                        <div>
+                            <div class="fw-bolder fs-4 text-dark lh-1 mb-1">{{ $totalPendaftar }}+</div>
+                            <div class="text-secondary small fw-medium" style="font-size: 12.5px;">Pendaftar Terdaftar</div>
+                        </div>
                     </div>
-                    <div class="col-sm-4 col-6">
-                        <div class="h3 fw-bold text-success mb-0">{{ $totalLulus }}+</div>
-                        <small class="text-muted">Lulus Seleksi</small>
+
+                    <!-- Divider -->
+                    <div class="stat-divider d-none d-sm-block" style="width: 1px; height: 38px; background: #e2e8f0;"></div>
+
+                    <!-- Stat 2 -->
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="fs-2 d-flex align-items-center">
+                            <i class="bi bi-mortarboard-fill" style="color: #0066ff;"></i>
+                        </div>
+                        <div>
+                            <div class="fw-bolder fs-4 text-dark lh-1 mb-1">{{ $totalLulus }}+</div>
+                            <div class="text-secondary small fw-medium" style="font-size: 12.5px;">Lulus Seleksi</div>
+                        </div>
                     </div>
-                    <div class="col-sm-4 col-12">
-                        <div class="h3 fw-bold text-warning mb-0">Akreditasi A</div>
-                        <small class="text-muted">Institusi Unggul</small>
+
+                    <!-- Divider -->
+                    <div class="stat-divider d-none d-sm-block" style="width: 1px; height: 38px; background: #e2e8f0;"></div>
+
+                    <!-- Stat 3 -->
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="fs-2 d-flex align-items-center">
+                            <i class="bi bi-shield-check" style="color: #0066ff;"></i>
+                        </div>
+                        <div>
+                            <div class="fw-bolder fs-5 text-dark lh-1 mb-1">Akreditasi A</div>
+                            <div class="text-secondary small fw-medium" style="font-size: 12.5px;">Institusi Unggul</div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="col-lg-5">
-                <div class="card border-0 shadow-lg rounded-4 overflow-hidden position-relative">
-                    <div class="card-header bg-primary text-white p-4">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="badge bg-white text-primary fw-bold">ONLINE REGISTRATION</span>
-                            <i class="bi bi-shield-check fs-4"></i>
+
+            <!-- Right Column Card (Informasi Penerimaan) -->
+            <div class="col-lg-5 d-flex justify-content-lg-end pt-lg-5 mt-lg-3">
+                <div class="hero-card-registration bg-white">
+                    <!-- Header -->
+                    <div class="p-4 text-white" style="background: #0066ff;">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="badge px-3 py-1 rounded-pill fw-bold"
+                                  style="background: rgba(255, 255, 255, 0.22); color: #ffffff; font-size: 10.5px; letter-spacing: 0.08em; border: 1px solid rgba(255, 255, 255, 0.35);">
+                                ONLINE REGISTRATION
+                            </span>
+                            <i class="bi bi-shield-check text-white fs-4"></i>
                         </div>
-                        <h4 class="fw-bold mt-3 mb-1">Informasi Penerimaan</h4>
-                        <small class="text-white-50">Langkah mudah menjadi bagian dari keluarga besar ACAI</small>
+                        <h4 class="fw-bold text-white mb-1" style="font-size: 1.35rem;">Informasi Penerimaan</h4>
+                        <p class="text-white-50 mb-0" style="font-size: 12.5px;">
+                            Langkah mudah menjadi bagian dari keluarga besar ACAI!
+                        </p>
                     </div>
-                    <div class="card-body p-4 bg-white">
-                        <div class="d-flex gap-3 mb-3">
-                            <div class="rounded-circle bg-light d-flex align-items-center justify-content-center text-primary fw-bold" style="width:40px;height:40px;flex-shrink:0;">1</div>
+
+                    <!-- Steps Body -->
+                    <div class="p-4 bg-white d-flex flex-column gap-3">
+                        <!-- Step 1 -->
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="rounded-circle d-flex align-items-center justify-content-center fw-bold"
+                                 style="width: 36px; height: 36px; background: #e0f2fe; color: #0066ff; flex-shrink: 0; font-size: 14.5px;">
+                                1
+                            </div>
                             <div>
-                                <h6 class="fw-bold mb-1">Buat Akun PMB</h6>
-                                <p class="text-muted small mb-0">Isi data akun email dan password pada form registrasi.</p>
+                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 14.5px;">Buat Akun PMB</h6>
+                                <p class="text-secondary mb-0" style="font-size: 12px; line-height: 1.45;">
+                                    Isi data akun email dan password pada form registrasi.
+                                </p>
                             </div>
                         </div>
-                        <div class="d-flex gap-3 mb-3">
-                            <div class="rounded-circle bg-light d-flex align-items-center justify-content-center text-primary fw-bold" style="width:40px;height:40px;flex-shrink:0;">2</div>
+
+                        <!-- Step 2 -->
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="rounded-circle d-flex align-items-center justify-content-center fw-bold"
+                                 style="width: 36px; height: 36px; background: #e0f2fe; color: #0066ff; flex-shrink: 0; font-size: 14.5px;">
+                                2
+                            </div>
                             <div>
-                                <h6 class="fw-bold mb-1">Lengkapi Biodata & Upload Berkas</h6>
-                                <p class="text-muted small mb-0">Unggah pas foto, ijazah / SKL, dan KTP / Kartu Pelajar.</p>
+                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 14.5px;">Lengkapi Biodata & Upload Berkas</h6>
+                                <p class="text-secondary mb-0" style="font-size: 12px; line-height: 1.45;">
+                                    Unggah pas foto, ijazah / SKL, dan KTP / Kartu Pelajar.
+                                </p>
                             </div>
                         </div>
-                        <div class="d-flex gap-3 mb-3">
-                            <div class="rounded-circle bg-light d-flex align-items-center justify-content-center text-primary fw-bold" style="width:40px;height:40px;flex-shrink:0;">3</div>
+
+                        <!-- Step 3 -->
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="rounded-circle d-flex align-items-center justify-content-center fw-bold"
+                                 style="width: 36px; height: 36px; background: #e0f2fe; color: #0066ff; flex-shrink: 0; font-size: 14.5px;">
+                                3
+                            </div>
                             <div>
-                                <h6 class="fw-bold mb-1">Verifikasi & Seleksi Ujian</h6>
-                                <p class="text-muted small mb-0">Panitia memverifikasi dokumen dan melakukan uji seleksi.</p>
+                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 14.5px;">Verifikasi & Seleksi Ujian</h6>
+                                <p class="text-secondary mb-0" style="font-size: 12px; line-height: 1.45;">
+                                    Panitia memverifikasi dokumen dan melakukan uji seleksi.
+                                </p>
                             </div>
                         </div>
-                        <div class="d-flex gap-3">
-                            <div class="rounded-circle bg-light d-flex align-items-center justify-content-center text-success fw-bold" style="width:40px;height:40px;flex-shrink:0;">4</div>
+
+                        <!-- Step 4 -->
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="rounded-circle d-flex align-items-center justify-content-center fw-bold"
+                                 style="width: 36px; height: 36px; background: #e0f2fe; color: #0066ff; flex-shrink: 0; font-size: 14.5px;">
+                                4
+                            </div>
                             <div>
-                                <h6 class="fw-bold mb-1">Pengumuman & Cetak Kartu</h6>
-                                <p class="text-muted small mb-0">Dapatkan kartu bukti kelulusan dan registrasi ulang.</p>
+                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 14.5px;">Pengumuman & Cetak Kartu</h6>
+                                <p class="text-secondary mb-0" style="font-size: 12px; line-height: 1.45;">
+                                    Dapatkan kartu bukti kelulusan dan registrasi ulang.
+                                </p>
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer bg-light p-3 text-center border-0">
-                        <a href="{{ route('register') }}" class="btn btn-primary w-100 fw-semibold rounded-3">Mulai Pendaftaran Sekarang</a>
+
+                    <!-- Footer CTA Button -->
+                    <div class="px-4 pb-4 bg-white">
+                        <a href="{{ route('register') }}"
+                           class="btn w-100 py-3 rounded-pill fw-bold text-white text-center d-block"
+                           style="background: #0066ff; font-size: 14.5px; box-shadow: 0 4px 14px rgba(0, 102, 255, 0.35); transition: all 0.2s ease;">
+                            Mulai Pendaftaran Sekarang
+                        </a>
                     </div>
                 </div>
             </div>
@@ -94,7 +302,7 @@
 
 <!-- Program Studi Section -->
 <section id="prodi" class="py-5">
-    <div class="container py-lg-4">
+    <div class="container-fluid px-4 px-xl-5 py-lg-4" style="max-width: 1400px;">
         <div class="text-center max-w-700 mx-auto mb-5">
             <span class="badge bg-primary-subtle text-primary fw-semibold px-3 py-1 rounded-pill">PILIHAN TERBAIK</span>
             <h2 class="fw-bold mt-2">Program Studi & Jurusan Unggulan</h2>
@@ -131,7 +339,7 @@
 
 <!-- Alur Pendaftaran Section -->
 <section id="alur" class="py-5 bg-white border-top border-bottom">
-    <div class="container py-lg-4">
+    <div class="container-fluid px-4 px-xl-5 py-lg-4" style="max-width: 1400px;">
         <div class="text-center mb-5">
             <span class="badge bg-info-subtle text-info fw-semibold px-3 py-1 rounded-pill">PROSES SELEKSI</span>
             <h2 class="fw-bold mt-2">Alur Pendaftaran Mahasiswa Baru</h2>
@@ -181,7 +389,7 @@
 
 <!-- Jadwal Section -->
 <section id="jadwal" class="py-5">
-    <div class="container py-lg-4">
+    <div class="container-fluid px-4 px-xl-5 py-lg-4" style="max-width: 1400px;">
         <div class="text-center mb-5">
             <span class="badge bg-warning-subtle text-warning fw-semibold px-3 py-1 rounded-pill">TIMELINE</span>
             <h2 class="fw-bold mt-2">Jadwal Penting PMB 2026</h2>
@@ -233,7 +441,7 @@
 
 <!-- FAQ Section -->
 <section id="faq" class="py-5 bg-white border-top">
-    <div class="container py-lg-4">
+    <div class="container-fluid px-4 px-xl-5 py-lg-4" style="max-width: 1400px;">
         <div class="text-center mb-5">
             <span class="badge bg-secondary-subtle text-secondary fw-semibold px-3 py-1 rounded-pill">FAQ</span>
             <h2 class="fw-bold mt-2">Pertanyaan Sering Diajukan</h2>
