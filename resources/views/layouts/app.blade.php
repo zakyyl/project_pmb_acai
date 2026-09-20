@@ -38,37 +38,43 @@
         }
 
         .navbar-acai {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            height: 68px;
+            background: #ffffff;
             border-bottom: 1px solid #e2e8f0;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+            display: flex;
+            align-items: center;
+            padding: 0;
+            z-index: 1030;
         }
 
         .brand-logo {
             font-weight: 800;
-            font-size: 1.4rem;
-            color: var(--primary);
-            letter-spacing: -0.5px;
+            font-size: 1.25rem;
+            color: #0f1e36;
+            letter-spacing: -0.4px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            text-decoration: none;
         }
 
         .brand-badge {
             background: #0066ff;
-            color: #fff;
-            font-size: 0.72rem;
-            padding: 4px 10px;
+            color: #ffffff;
+            font-size: 0.7rem;
+            padding: 3px 9px;
             border-radius: 20px;
             font-weight: 700;
+            letter-spacing: 0.2px;
         }
 
         .navbar-acai .nav-link {
             font-weight: 500;
-            color: #334155;
-            padding: 0.6rem 1.1rem !important;
-            transition: color 0.2s ease;
+            font-size: 0.92rem;
+            color: #475569;
+            padding: 0.5rem 1.1rem !important;
+            transition: all 0.2s ease;
             position: relative;
         }
 
@@ -84,34 +90,13 @@
         .navbar-acai .nav-link.active::after {
             content: '';
             position: absolute;
-            bottom: 0px;
+            bottom: -8px;
             left: 50%;
             transform: translateX(-50%);
-            width: 28px;
+            width: 26px;
             height: 3px;
             background: #0066ff;
             border-radius: 3px;
-        }
-
-        .btn-primary-acai {
-            background: #0066ff;
-            border: none;
-            color: white;
-            font-weight: 600;
-            padding: 0.55rem 1.35rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 14px rgba(0, 102, 255, 0.25);
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .btn-primary-acai:hover {
-            background: #0052cc;
-            color: white;
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(0, 102, 255, 0.35);
         }
 
         .btn-outline-primary-acai {
@@ -119,18 +104,43 @@
             color: #0066ff;
             background: #ffffff;
             font-weight: 600;
-            padding: 0.5rem 1.25rem;
+            font-size: 0.88rem;
+            padding: 0.45rem 1.15rem;
             border-radius: 8px;
             transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            text-decoration: none;
         }
 
         .btn-outline-primary-acai:hover {
             background: #f0f7ff;
             color: #0052cc;
             border-color: #0052cc;
+        }
+
+        .btn-primary-acai {
+            background: #0066ff;
+            border: none;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 0.88rem;
+            padding: 0.48rem 1.25rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 102, 255, 0.25);
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+        }
+
+        .btn-primary-acai:hover {
+            background: #0052cc;
+            color: #ffffff;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(0, 102, 255, 0.35);
         }
 
         .footer-acai {
@@ -171,7 +181,7 @@
 
     <!-- Top Navigation -->
     <nav class="navbar navbar-expand-lg navbar-acai sticky-top">
-        <div class="container">
+        <div class="container-fluid px-4 px-lg-5" style="max-width: 1440px;">
             <a class="navbar-brand brand-logo" href="{{ route('home') }}">
                 <i class="bi bi-mortarboard-fill text-primary fs-3"></i>
                 <span>PMB ACAI</span>
