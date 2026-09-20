@@ -1,98 +1,143 @@
-# 🎓 Sistem Informasi PMB ACAI (Penerimaan Mahasiswa Baru)
+# PMB ACAI - Sistem Penerimaan Mahasiswa Baru
 
-Aplikasi Web Sistem Penerimaan Mahasiswa Baru (PMB) untuk Institut & Akademi ACAI berbasis **Laravel 10**, **Bootstrap 5**, dan **MySQL**. Dilengkapi dengan portal mandiri calon mahasiswa, antarmuka verifikasi berkas dan hasil ujian seleksi oleh panitia, serta laporan kelulusan siap cetak.
-
----
-
-## ✨ Fitur Utama
-
-### 1. Portal Publik & Calon Mahasiswa
-* **Landing Page Modern:** Informasi program studi pilihan, jadwal gelombang seleksi, alur pendaftaran, dan FAQ interaktif.
-* **Autentikasi Akun:** Registrasi calon mahasiswa baru & login terintegrasi.
-* **Formulir Pendaftaran:** Pengisian biodata lengkap (Nama, Jenis Kelamin, TTL, Asal SMA, Tahun Lulus) dan pemilihan program studi / jurusan.
-* **Upload Berkas Persyaratan:** Unggah Pas Foto formal (3x4), Scan Ijazah / SKL, dan Scan KTP / Kartu Pelajar.
-* **Pelacakan Status Seleksi (Stepper Progress):**
-  * Status Verifikasi Berkas Administrasi (*Lulus / Belum Lulus / Tidak Lulus*)
-  * Status Hasil Ujian Seleksi Masuk (*Lulus / Belum Lulus / Tidak Lulus*)
-* **Cetak Kartu Tanda Peserta Ujian:** Desain kartu resmi ber-KOP surat, barcode registrasi, foto peserta, jadwal ujian CBT, dan tanda tangan digital panitia.
-
-### 2. Panel Administrator / Panitia PMB
-* **Dashboard Statistik:** Analisis jumlah pendaftar, rasio kelulusan berkas, kelulusan ujian, dan distribusi pendaftar per jurusan.
-* **Manajemen Data Mahasiswa:** Monitoring seluruh pendaftar, pencarian berdasarkan nama/asal sekolah, dan detail profil dokumen.
-* **Meja Verifikasi Berkas Dokumen:** Pemeriksaan dokumen yang diunggah dan pembaruan status kelulusan administrasi.
-* **Meja Verifikasi Ujian Seleksi:** Penginputan hasil kelulusan Computer Based Test (CBT).
-* **Manajemen Program Studi (CRUD Jurusan):** Pengelolaan daftar jurusan, deskripsi, dan kuota pendaftar.
-* **Laporan Resmi Siap Cetak (Print-Ready):**
-  * Laporan Calon Mahasiswa Lulus Seleksi Administrasi
-  * Laporan Calon Mahasiswa Lulus Ujian Masuk
+Aplikasi web penerimaan mahasiswa baru (PMB) berbasis **Laravel 10** dan **MySQL**. Dikembangkan untuk memfasilitasi proses pendaftaran mandiri calon mahasiswa baru, verifikasi berkas administrasi oleh panitia, pengelolaan ujian seleksi, hingga cetak kartu ujian dan rekap laporan kelulusan.
 
 ---
 
-## 🛠️ Tech Stack & Requirements
+## Daftar Fitur
 
-* **Bahasa Pemrograman:** PHP 8.1 / 8.2 / 8.3
-* **Framework:** Laravel 10.x
-* **Database:** MySQL / MariaDB
-* **Frontend:** Blade Templating, Bootstrap 5.3, Bootstrap Icons, Google Fonts (Plus Jakarta Sans)
-* **Web Server:** Apache (WampServer / XAMPP / Laragon)
+### 1. Portal Calon Mahasiswa
+- **Registrasi & Login:** Pembuatan akun mandiri calon mahasiswa.
+- **Formulir Pendaftaran:** Input identitas diri, asal sekolah, tahun lulus, dan pilihan program studi.
+- **Upload Berkas Persyaratan:** Unggah pas foto formal, scan ijazah/SKL, dan scan KTP/kartu identitas.
+- **Pelacakan Status Seleksi:** Pemantauan progres seleksi secara transparan:
+  - Status Verifikasi Berkas Administrasi (*Lulus / Menunggu / Tidak Lulus*)
+  - Status Hasil Ujian Masuk (*Lulus / Menunggu / Tidak Lulus*)
+- **Cetak Kartu Ujian:** Halaman kartu tanda peserta ujian seleksi dengan format siap cetak (termasuk nomor pendaftaran, jadwal seleksi, dan foto peserta).
 
----
-
-## 🚀 Panduan Instalasi Lokal
-
-1. **Clone Repository:**
-   ```bash
-   git clone https://github.com/zakyyl/project_pmb_acai.git
-   cd project_pmb_acai
-   ```
-
-2. **Install Dependensi Composer:**
-   ```bash
-   composer install
-   ```
-
-3. **Konfigurasi Environment:**
-   Salin file `.env.example` menjadi `.env`:
-   ```bash
-   cp .env.example .env
-   php artisan key:generate
-   ```
-   Pastikan pengaturan database di `.env` sesuai dengan MySQL Anda:
-   ```env
-   DB_CONNECTION=mysql
-   DB_HOST=127.0.0.1
-   DB_PORT=3306
-   DB_DATABASE=pmb_acai
-   DB_USERNAME=root
-   DB_PASSWORD=
-   ```
-
-4. **Migrasi Database & Seeder:**
-   ```bash
-   php artisan migrate:fresh --seed
-   ```
-
-5. **Hubungkan Symlink Storage Berkas:**
-   ```bash
-   php artisan storage:link
-   ```
-
-6. **Jalankan Aplikasi:**
-   ```bash
-   php artisan serve
-   ```
-   Akses di browser: `http://localhost:8000` *(atau via WampServer: `http://localhost/pmb/project_pmb_acai/public/`)*.
+### 2. Panel Administrator / Panitia
+- **Dashboard Ringkasan:** Statistik jumlah pendaftar, rasio berkas terverifikasi, dan tingkat kelulusan ujian.
+- **Manajemen Data Pendaftar:** Daftar seluruh calon mahasiswa beserta detail data dan dokumen pendukung.
+- **Verifikasi Dokumen:** Validasi berkas upload dan pembaruan status kelulusan berkas.
+- **Verifikasi Hasil Ujian:** Input dan pembaruan hasil ujian seleksi masuk.
+- **Manajemen Program Studi:** CRUD daftar jurusan/program studi dan kuota penerimaan.
+- **Cetak Laporan Rekap:** Laporan siap cetak untuk arsip panitia:
+  - Rekap Mahasiswa Lulus Seleksi Administrasi
+  - Rekap Mahasiswa Lulus Ujian Masuk
 
 ---
 
-## 🔑 Akun Demo Default
+## Tech Stack
 
-| Role | Email | Password |
-| :--- | :--- | :--- |
-| **Administrator PMB** | `admin@acai.ac.id` | `password123` |
-| **Calon Mahasiswa Demo** | `calon@acai.ac.id` | `password123` |
+- **Backend:** PHP >= 8.1, Laravel 10.x
+- **Database:** MySQL / MariaDB
+- **Frontend:** Blade Templating, Bootstrap 5.3, Bootstrap Icons
+- **Web Server:** Apache (WampServer / XAMPP) atau `php artisan serve`
 
 ---
 
-## 📄 Lisensi
-Dikembangkan di bawah lisensi MIT License.
+## Kebutuhan Sistem
+
+- PHP 8.1 ke atas
+- Ekstensi PHP: `pdo_mysql`, `mbstring`, `fileinfo`, `openssl`, `tokenizer`, `xml`, `ctype`, `json`
+- Composer 2.x
+- MySQL 5.7+ atau MariaDB 10.3+
+
+---
+
+## Panduan Instalasi Lokal
+
+### 1. Clone Repository
+```bash
+git clone https://github.com/zakyyl/project_pmb_acai.git
+cd project_pmb_acai
+```
+
+### 2. Install Dependensi
+```bash
+composer install
+```
+
+### 3. Konfigurasi Environment
+Salin file `.env.example` ke `.env`:
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+Sesuaikan konfigurasi database pada `.env`:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=pmb_acai
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+### 4. Setup Database & Storage
+Jalankan migrasi database beserta data awal (seeder):
+```bash
+php artisan migrate --seed
+```
+
+Buat symlink direktori penyimpanan file:
+```bash
+php artisan storage:link
+```
+
+### 5. Menjalankan Aplikasi
+Pilih salah satu cara berikut:
+
+- **Menggunakan Laravel Development Server:**
+  ```bash
+  php artisan serve
+  ```
+  Buka browser di: `http://127.0.0.1:8000`
+
+- **Menggunakan WampServer / XAMPP:**
+  Pastikan folder ditaruh di dalam direktori web server (misal: `www/pmb/project_pmb_acai`), lalu akses:
+  `http://localhost/pmb/project_pmb_acai/public/`
+
+---
+
+## Akun Bawaan (Default Seeder)
+
+Setelah menjalankan `php artisan migrate --seed`, akun berikut siap digunakan untuk pengujian:
+
+| Role | Email | Password | Keterangan |
+| :--- | :--- | :--- | :--- |
+| **Administrator** | `admin@acai.ac.id` | `password123` | Akses penuh ke panel admin & verifikasi |
+| **Calon Mahasiswa** | `calon@acai.ac.id` | `password123` | Akses ke portal mahasiswa & cetak kartu |
+
+---
+
+## Struktur Database Inti
+
+- `users` — Data autentikasi dan peran akun (`role: admin / mahasiswa`).
+- `jurusans` — Master data program studi, deskripsi, dan kuota pendaftaran.
+- `mahasiswas` — Profil lengkap pendaftar, biodata, dan path file dokumen berkas.
+- `pendaftarans` — Relasi pendaftaran mahasiswa ke jurusan, status verifikasi administrasi, dan kelulusan ujian.
+
+---
+
+## Pengujian Otomatis
+
+Proyek ini telah dilengkapi dengan feature test untuk memastikan alur utama berfungsi normal:
+
+```bash
+php artisan test
+```
+
+---
+
+## Riwayat Versi & Branch
+
+- `master` (**v2.0**) — Versi rekonstruksi modern berbasis Laravel 10, arsitektur MVC bersih, Blade views responsif, dan validasi berkas.
+- `legacy` (**v1.0-kuliah**) — Arsip kode versi lama masa perkuliahan sebagai riwayat histori pengembangan.
+
+---
+
+## Lisensi
+
+Proyek ini dirilis di bawah lisensi [MIT](LICENSE).
