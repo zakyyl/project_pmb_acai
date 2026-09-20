@@ -38,43 +38,49 @@
         }
 
         .navbar-acai {
-            height: 68px;
             background: #ffffff;
             border-bottom: 1px solid #e2e8f0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-            display: flex;
-            align-items: center;
-            padding: 0;
+            padding: 0.75rem 0;
+            position: sticky;
+            top: 0;
             z-index: 1030;
         }
 
         .brand-logo {
             font-weight: 800;
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             color: #0f1e36;
             letter-spacing: -0.4px;
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             text-decoration: none;
+            white-space: nowrap;
         }
 
         .brand-badge {
             background: #0066ff;
             color: #ffffff;
-            font-size: 0.7rem;
-            padding: 3px 9px;
+            font-size: 0.72rem;
+            padding: 4px 10px;
             border-radius: 20px;
             font-weight: 700;
             letter-spacing: 0.2px;
         }
 
+        .navbar-acai .navbar-nav {
+            gap: 0.5rem;
+            align-items: center;
+        }
+
         .navbar-acai .nav-link {
             font-weight: 500;
-            font-size: 0.92rem;
+            font-size: 0.95rem;
             color: #475569;
-            padding: 0.5rem 1.1rem !important;
-            transition: all 0.2s ease;
+            padding: 0.5rem 0.9rem !important;
+            white-space: nowrap !important;
+            transition: color 0.2s ease;
             position: relative;
         }
 
@@ -90,10 +96,10 @@
         .navbar-acai .nav-link.active::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: -4px;
             left: 50%;
             transform: translateX(-50%);
-            width: 26px;
+            width: 28px;
             height: 3px;
             background: #0066ff;
             border-radius: 3px;
@@ -104,9 +110,10 @@
             color: #0066ff;
             background: #ffffff;
             font-weight: 600;
-            font-size: 0.88rem;
-            padding: 0.45rem 1.15rem;
+            font-size: 0.9rem;
+            padding: 0.5rem 1.25rem;
             border-radius: 8px;
+            white-space: nowrap !important;
             transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
@@ -125,10 +132,11 @@
             border: none;
             color: #ffffff;
             font-weight: 600;
-            font-size: 0.88rem;
-            padding: 0.48rem 1.25rem;
+            font-size: 0.9rem;
+            padding: 0.55rem 1.35rem;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 102, 255, 0.25);
+            box-shadow: 0 4px 14px rgba(0, 102, 255, 0.25);
+            white-space: nowrap !important;
             transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
@@ -140,7 +148,7 @@
             background: #0052cc;
             color: #ffffff;
             transform: translateY(-1px);
-            box-shadow: 0 6px 16px rgba(0, 102, 255, 0.35);
+            box-shadow: 0 6px 18px rgba(0, 102, 255, 0.35);
         }
 
         .footer-acai {
@@ -183,7 +191,7 @@
     <nav class="navbar navbar-expand-lg navbar-acai sticky-top">
         <div class="container-fluid px-4 px-lg-5" style="max-width: 1440px;">
             <a class="navbar-brand brand-logo" href="{{ route('home') }}">
-                <i class="bi bi-mortarboard-fill text-primary fs-3"></i>
+                <i class="bi bi-mortarboard-fill fs-3" style="color: #0066ff;"></i>
                 <span>PMB ACAI</span>
                 <span class="brand-badge">2026/2027</span>
             </a>
@@ -211,25 +219,25 @@
                     </li>
                 </ul>
 
-                <div class="d-flex align-items-center gap-2">
+                <div class="d-flex align-items-center gap-2 flex-nowrap">
                     @auth
                         @if(Auth::user()->role === 'admin')
-                            <a href="{{ route('admin.dashboard') }}" class="btn btn-primary-acai btn-sm">
+                            <a href="{{ route('admin.dashboard') }}" class="btn btn-primary-acai">
                                 <i class="bi bi-speedometer2 me-1"></i> Dashboard Admin
                             </a>
                         @else
-                            <a href="{{ route('mahasiswa.dashboard') }}" class="btn btn-outline-primary btn-sm rounded-3 fw-semibold">
+                            <a href="{{ route('mahasiswa.dashboard') }}" class="btn btn-outline-primary-acai">
                                 <i class="bi bi-person-circle me-1"></i> Portal Mahasiswa
                             </a>
                         @endif
-                        <a href="{{ route('logout') }}" class="btn btn-light btn-sm text-danger rounded-3" title="Logout">
+                        <a href="{{ route('logout') }}" class="btn btn-light text-danger rounded-3 p-2" title="Logout">
                             <i class="bi bi-box-arrow-right"></i>
                         </a>
                     @else
-                        <a href="{{ route('login') }}" class="btn btn-outline-primary-acai btn-sm">
+                        <a href="{{ route('login') }}" class="btn btn-outline-primary-acai">
                             <i class="bi bi-box-arrow-in-right"></i> Masuk
                         </a>
-                        <a href="{{ route('register') }}" class="btn btn-primary-acai btn-sm">
+                        <a href="{{ route('register') }}" class="btn btn-primary-acai">
                             <i class="bi bi-pencil-square"></i> Daftar Sekarang
                         </a>
                     @endauth
